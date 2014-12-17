@@ -31,6 +31,8 @@ var Shareabouts = Shareabouts || {};
           }
         }
       });
+
+      NS.router.navigate(this.collection.getPath());
     }, 500),
     handleFilterTextInput: function(evt) {
       evt.preventDefault();
@@ -42,8 +44,6 @@ var Shareabouts = Shareabouts || {};
       this.filterChanged = true;
       this.applyCollectionFilter();
       this.ui.filterSpinner.removeClass('hide');
-
-      NS.router.navigate(this.collection.getPath());
     },
     serializeData: function(){
       var data = {};
