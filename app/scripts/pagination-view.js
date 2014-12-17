@@ -29,7 +29,7 @@ var Shareabouts = Shareabouts || {};
           }
         });
 
-        NS.router.navigate(NS.currentDataset.get('id') + '/page/'+page);
+        NS.router.navigate(this.collection.getPath(page));
       }
 
     },

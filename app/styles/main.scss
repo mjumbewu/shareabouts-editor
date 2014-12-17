@@ -1,3 +1,16 @@
+@import '../bower_components/spinkit/scss/spinners/7-three-bounce';
+
+$spinkit-spinner-color: #888;
+
+.sk-spinner-three-bounce {
+  div {
+    width: 4px;
+    height: 4px;
+    background-color: #888;
+    margin: 0 2px;
+  }
+}
+
 .save-message {
     position:fixed;
     left: 1em;
@@ -31,4 +44,32 @@
     height: 200px;
     background-color: #f4f4f4;
     border: 1px solid #dcdcdc;
+}
+
+.filter-region {
+    line-height: 3.85rem;
+}
+
+.filter-region .filter-value {
+    margin: 0;
+    padding-left: 3em;
+    display: inline-block;
+}
+
+.filter-region::before {
+    content: 'Filter:';
+    display: block;
+    color: #888;
+    position: absolute;
+    left: 1.6rem;
+    top: 0.8rem;
+    font-size: 0.7rem;
+    line-height: 2.3125rem;
+}
+
+.filter-spinner {
+    position: absolute;
+    line-height: 2.3125rem;
+    right: 1rem;
+    top: 0.65rem;
 }

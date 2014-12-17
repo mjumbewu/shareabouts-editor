@@ -18,7 +18,9 @@ var Shareabouts = Shareabouts || {};
   NS.PlaceListLayout = Backbone.Marionette.Layout.extend({
     template: NS.Templates['place-list'],
     regions: {
-      paginationRegion: '.pagination-region',
+      filterRegion: '.filter-region',
+      upperPaginationRegion: '.pagination-region:first',
+      lowerPaginationRegion: '.pagination-region:last',
       placeListRegion: '.place-list-region'
     },
     collectionEvents: {
@@ -26,14 +28,21 @@ var Shareabouts = Shareabouts || {};
     },
     renderPagination: function(){
       if (this.collection.metadata.num_pages > 1) {
-        this.paginationRegion.show(new NS.PaginationView({
+        this.upperPaginationRegion.show(new NS.PaginationView({
+          collection: this.collection
+        }));
+        this.lowerPaginationRegion.show(new NS.PaginationView({
           collection: this.collection
         }));
       } else {
-        this.paginationRegion.close();
+        this.upperPaginationRegion.close();
+        this.lowerPaginationRegion.close();
       }
     },
     onRender: function() {
+      this.filterRegion.show(new NS.FilterView({
+        collection: this.collection
+      }));
       this.placeListRegion.show(new NS.PlaceListView({
         collection: this.collection
       }));

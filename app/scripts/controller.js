@@ -66,6 +66,10 @@ var Shareabouts = Shareabouts || {};
         }
       });
     }),
+    filteredPlaceList: function(datasetSlug, filter, page) {
+      NS.placeCollection.setFilter(filter);
+      return this.placeList(datasetSlug, page);
+    },
     placeForm: signInRequired(function(datasetSlug, placeId) {
       // Set the dataset url on the place collection
       NS.currentDataset = NS.datasetCollection.findWhere({ id: datasetSlug });
