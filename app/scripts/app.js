@@ -5,6 +5,7 @@ var Shareabouts = Shareabouts || {};
 (function(NS, $, console){
   'use strict';
 
+  NS.hostserver = 'https://data.shareabouts.org';
   NS.app = new Backbone.Marionette.Application();
 
   // Add the main region
@@ -16,16 +17,15 @@ var Shareabouts = Shareabouts || {};
   // Initialize the dataset collection
   NS.app.addInitializer(function(options){
     NS.datasetCollection = new Backbone.Collection([
-      { id: 'abandoned-bikes', name: 'Abandoned Bikes', url: 'http://data.shareabouts.org/api/v2/chicagobikes/datasets/chicago-abandoned-bikes', dataUrl: 'http://data.shareabouts.org/api/v2/chicagobikes/datasets/chicago-abandoned-bikes/places?include_invisible&include_private&page_size=5000&format=csv'
-},
-      { id: 'bike-parking', name: 'Bike Parking', url: 'http://data.shareabouts.org/api/v2/chicagobikes/datasets/chicago-bike-parking', dataUrl: 'http://data.shareabouts.org/api/v2/chicagobikes/datasets/chicago-bike-parking/places?include_invisible&include_private&page_size=5000&format=csv'}
+      { id: 'abandoned-bikes', name: 'Abandoned Bikes', url: NS.hostserver + '/api/v2/chicagobikes/datasets/chicago-abandoned-bikes', dataUrl: NS.hostserver + '/api/v2/chicagobikes/datasets/chicago-abandoned-bikes/places?include_invisible&include_private&page_size=5000&format=csv'},
+      { id: 'bike-parking', name: 'Bike Parking', url: NS.hostserver + '/api/v2/chicagobikes/datasets/chicago-bike-parking', dataUrl: NS.hostserver + '/api/v2/chicagobikes/datasets/chicago-bike-parking/places?include_invisible&include_private&page_size=5000&format=csv'}
     ]);
   });
 
   // Initialize the place collection
   NS.app.addInitializer(function(options){
     NS.placeCollection = new NS.PlaceCollection();
-    // NS.placeCollection.url = 'http://data.shareabouts.org/api/v2/demo-user/datasets/demo-data/places';
+    // NS.placeCollection.url = NS.hostserver + '/api/v2/demo-user/datasets/demo-data/places';
 
     // Add functions for un/setting a filter.
     NS.placeCollection.setFilter = function(filter) { this.filter = filter; };
@@ -58,7 +58,9 @@ var Shareabouts = Shareabouts || {};
 
   // Initialize the user authentication
   NS.app.addInitializer(function(options){
-    NS.auth = new NS.Auth();
+    NS.auth = new NS.Auth({
+      apiRoot: NS.hostserver + '/api/v2/'
+    });
   });
 
   // Show the header region
