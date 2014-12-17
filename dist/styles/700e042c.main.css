@@ -1,1 +1,0 @@
-.save-message{position:fixed;left:1em;right:1em;top:-200px;z-index:999;opacity:.9;transition:top .5s ease-in-out;font-size:1.2em}.save-message.show{top:1em}.save-message.success:after{content:'Saved!'}.save-message.alert:after{content:'Unable to save. Please try again.'}.map{width:100%;height:200px;background-color:#f4f4f4;border:1px solid #dcdcdc}
