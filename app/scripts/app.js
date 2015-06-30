@@ -5,7 +5,7 @@ var Shareabouts = Shareabouts || {};
 (function(NS, $, console){
   'use strict';
 
-  NS.hostserver = 'https://data.shareabouts.org';
+  NS.hostserver = 'https://shareaboutsapi2.herokuapp.com';
   NS.app = new Backbone.Marionette.Application();
 
   // Add the main region
