@@ -12,8 +12,8 @@ var Shareabouts = Shareabouts || {};
 
   NS.DatasetListView = Backbone.Marionette.CompositeView.extend({
     template: NS.Templates['dataset-list'],
-    itemView: NS.DatasetListItemView,
-    itemViewContainer: '.dataset-items'
+    childView: NS.DatasetListItemView,
+    childViewContainer: '.dataset-items'
   });
 
 

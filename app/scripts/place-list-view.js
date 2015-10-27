@@ -11,11 +11,11 @@ var Shareabouts = Shareabouts || {};
   });
 
   NS.PlaceListView = Backbone.Marionette.CollectionView.extend({
-    itemView: NS.PlaceListItemView,
-    itemViewContainer: '.place-items'
+    childView: NS.PlaceListItemView,
+    childViewContainer: '.place-items'
   });
 
-  NS.PlaceListLayout = Backbone.Marionette.Layout.extend({
+  NS.PlaceListLayout = Backbone.Marionette.LayoutView.extend({
     template: NS.Templates['place-list'],
     regions: {
       paginationRegion: '.pagination-region',
@@ -30,7 +30,7 @@ var Shareabouts = Shareabouts || {};
           collection: this.collection
         }));
       } else {
-        this.paginationRegion.close();
+        this.paginationRegion.destroy();
       }
     },
     onRender: function() {
