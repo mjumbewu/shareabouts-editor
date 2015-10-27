@@ -11,6 +11,8 @@ var Shareabouts = Shareabouts || {};
       '': 'datasetList',
       ':dataset_slug': 'placeList',
       ':dataset_slug/page/:page': 'placeList',
+      ':dataset_slug/filter/:filter': 'filteredPlaceList',
+      ':dataset_slug/filter/:filter/page/:page': 'filteredPlaceList',
       ':dataset_slug/:place_id': 'placeForm'
     }
   });

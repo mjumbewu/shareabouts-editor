@@ -66,6 +66,7 @@
                   <select name="status">
                     {{#select status}}
                     <option value="">Not Yet Surveyed</option>
+                    <option value="Pending">Pending</option>
                     <option value="Approved">Approved</option>
                     <option value="ApprovedNotSent">Approved and Not Yet Sent</option>
                     <option value="ApprovedSent">Approved and Sent to Contractor</option>
@@ -89,9 +90,11 @@
                     <option value="Not Enough Clearance">Not Enough Clearance</option>
                     <option value="Sidewalk Cafe">Sidewalk Cafe</option>
                     <option value="Inside a Strip Mall/Shopping Center">Inside a Strip Mall/Shopping Center</option>
+                    <option value="Vacant/No Demand">Vacant/No Demand</option>
                     {{/select}}
                   </select>
                 </label>
+                <hr>
                 <div class="row">
                   <div class="columns small-5 medium-3">
                     <label>Approved Qty<input type="text" name="private_approved_qty" value="{{private_approved_qty}}"></label>
@@ -113,6 +116,21 @@
                     </label>
                   </div><!-- end .columns -->
                 </div><!-- end .row -->
+                <label>Contract
+                  <select name="private-contract">
+                    {{#select private-contract}}
+                    <option value=""></option>
+                    <option value="W-4-124">W-4-124</option>
+                    <option value="W-8-113">W-8-113</option>
+                    <option value="W-5-110">W-5-110</option>
+                    <option value="B-1-443">B-1-443</option>
+                    <option value="In-House">In-House</option>
+                    <option value="Historical">Historical</option>
+                    {{/select}}
+                  </select>
+                </label>
+                <label>Invoice<input type="text" name="private_invoice" value="{{ private_invoice }}"></label>
+                <label>Pay Estimate<input type="text" name="private_estimate" value="{{ private_estimate }}"></label>
 
                 <hr>
 
